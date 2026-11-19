@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from accounts.serializers import UserSerializer
-from accounts.models import User
-
-class CreateTrainerView(APIView):
+from accounts.serializers import UserSerializer,TrainerProfileSerializer,StudentProfileSerailizer
+from accounts.models import User,TrainerProfile,StudentProfile
+from rest_framework import authentication,permissions
+from accounts.permissions import  IsOwner
+class RegisterTrainerView(APIView):
 
     def post(self,request):
 
@@ -24,8 +25,47 @@ class CreateTrainerView(APIView):
         else:
 
           return Response(data=serializer.errors)
+  
 
-class CreateStudentView(APIView):
+class TrainerProfileUpdateView(APIView):
+
+    authentication_classes = [authentication.TokenAuthentication]
+
+    permission_classes = [IsOwner]
+
+    def put(self,request):
+
+        form_data = request.data
+
+        trainer_object = TrainerProfile.objects.get(trainer=request.user)
+
+        serializer = TrainerProfileSerializer(data=form_data,instance=trainer_object)
+
+        if serializer.is_valid():
+
+            serializer.save()
+
+            return Response(data=serializer.data)
+
+        else:return Response(data=serializer.errors)
+
+class GetTrainerProfileView(APIView):
+
+    authentication_classes = [authentication.TokenAuthentication] 
+
+    permission_classes = [IsOwner]
+
+    def get(self,request):
+
+        trainer = request.user
+
+        instance = get_object_or_404(TrainerProfile,trainer=trainer)
+
+        serializer = TrainerProfileSerializer(instance)
+
+        return Response(data=serializer.data)
+
+class RegisterStudentView(APIView):
 
     def post(self,request):
 
@@ -44,4 +84,26 @@ class CreateStudentView(APIView):
             return Response(data=serialzier.data)
         else:
 
-          return Response(data=serialzier.errors)   
+          return Response(data=serialzier.errors) 
+
+class StudentProfileUpdateView(APIView):
+
+    authentication_classes = [authentication.TokenAuthentication]
+
+    permission_classes = [IsOwner]
+
+    def put(self,request):
+
+        form_data = request.data
+
+        trainer_object = StudentProfile.objects.get(trainer=request.user)
+
+        serializer = StudentProfileSerailizer(data=form_data,instance=trainer_object)
+
+        if serializer.is_valid():
+
+            serializer.save()
+
+            return Response(data=serializer.data)
+
+        else:return Response(data=serializer.errors)

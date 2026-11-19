@@ -6,24 +6,98 @@ POST http://127.0.0.1:8000/api/trainer/register
 Content-Type: application/json
 
 {
-    "username":"Sajay",
+    "username":"Sajay43",
     "email":"sajay@gmail.com",
-    "password":"sajay@123",
-    "phone":"98765686776"
+    "password":"sajay@23",
+    "phone":"987658096"
 }
 
 # Trainer Token Genrating
+###
 
+POST  http://127.0.0.1:8000/api/trainer/login
+Content-Type: application/json
 
-#
+{
+    "username":"Sajay3",
+    "password":"sajay@23"
+
+}
+#access token genrating
+###
+
+PUT http://127.0.0.1:8000/api/trainer/profile
+Content-Type: application/json
+Authorization: Token dc5a833d145bde9882ce404f2250f313d0d60d82
+
+{
+    "date_of_birth": "1999-05-12",
+    "bio_data": "Full Stack Development trainer specializing in Python, Django, REST APIs, MySQL, and React.js.",
+    "gender": "male",
+    "profile_picture": null,
+    "department": "Full Stack Development",
+    "qualification": "Btech Computer Science",
+    "linkedin_url": "https://www.linkedin.com/in/sajay-nj",
+    "github_url": "https://github.com/sajay-nj"
+}
+
+#api call for get
+###
+
+GET http://127.0.0.1:8000/api/trainer/me
+Accept: application/json
+Authorization: Token dc5a833d145bde9882ce404f2250f313d0d60d82
+#api call for register
 ###
 
 POST  http://127.0.0.1:8000/api/student/register
 Content-Type: application/json
 
+
 {
-    "username":"Ayush23",
+    "username":"Ayush73",
     "email":"ayush@gmail.com",
     "password":"Ayush@23",
-    "phone":"8848298136"
+    "phone":"884899136"
+}
+
+
+#
+###
+POST http://127.0.0.1:8000/api/student/jwt/login
+Content-Type: application/json
+
+{
+    "username":"Ayush73",
+    "password":"Ayush@23"
+}
+
+#
+###
+
+POST  http://127.0.0.1:8000/api/student/jwt/refresh/login
+Content-Type: application/json
+
+{
+    "refresh":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5NTE0OTcxMywiaWF0IjoxNzk1MDYzMzEzLCJqdGkiOiJmZDEzZGY2MjFhZDc0YTQzYjdkMDA5OTQ1MjEzYmMxOSIsInVzZXJfaWQiOiI3In0.E-0yqZFDPyCpltoVYGdOHY9Us8ALbMwyGWoCmBZf2-c"
+}
+
+#
+###
+
+PUT http://127.0.0.1:8000/api/student/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5NTE1MDI1NiwiaWF0IjoxNzk1MDYzODU2LCJqdGkiOiJmY2ViZjIyYTk3ZTM0NDFlYTdiYjMxY2Y2MzZhYjdjNCIsInVzZXJfaWQiOiI3In0.18m1A1amUWSzwDeEstDV9iimcUYye0ARm_wExYnfo7A
+
+{
+    "date_of_birth": "2005-02-11",
+    "bio_data": "Full Stack Development intern in Python, Django, REST APIs, MySQL, and React.js.",
+    "gender": "male",
+    "skill":"DJANGO",
+    "address":"ashwin nivas",
+    "passout_year":2026,
+    "profile_picture": null,
+    "qualification": "Btech Computer Science",
+    "linkedin_url": "https://www.linkedin.com/in/ayush",
+    "github_url": "https://github.com/ayush"
 }

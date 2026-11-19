@@ -2,6 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.signals import post_save
+from django.core.mail import send_mail
 
 # Create your models here.
 class User(AbstractUser):
@@ -23,7 +24,7 @@ class StudentProfile(models.Model):
        ("male","Male"),
        ("female","Female")
    ]
-   gender=models.CharField(max_length=10,choices=GENDER,default="student")
+   gender=models.CharField(max_length=10,choices=GENDER,default="male")
    student=models.OneToOneField(User,on_delete=models.CASCADE,related_name='student')
    passout_year = models.CharField(max_length=4,null=True)
    skill = models.CharField(max_length=200,null=True)
@@ -44,7 +45,7 @@ class TrainerProfile(models.Model):
            ("male","Male"),
            ("female","Female")
        ]
-       gender=models.CharField(max_length=10,choices=GENDER,default="student")
+       gender=models.CharField(max_length=10,choices=GENDER,default="male")
        trainer=models.OneToOneField(User,on_delete=models.CASCADE,related_name='trainer')
        profile_picture=models.ImageField(upload_to="profile_picture",null=True)
        github=models.URLField(null=True)
@@ -67,4 +68,26 @@ def create_profile(sender,instance,created,*args,**kwargs):
 
             StudentProfile.objects.create(student=instance)
 
-post_save.connect(create_profile,sender=User)                
+post_save.connect(create_profile,sender=User)     
+
+def account_send_mail(sender,instance,created,*args,**kwargs):
+
+    if created and instance.role == "trainer":
+
+        send_mail(
+            "Account creating conferamtion",
+            "Trainer...You are created account👍",
+            "ayushnandakumar04@gmail.com",
+            ["thefarsin12@gmail.com"],
+    )
+
+    elif created and instance.role == "student":
+
+        send_mail(
+            "Account creating conferamtion",
+            "Student You are created account 👌.",
+            "ayushnandakumar04@gmail.com",
+            ["thefarsin@gmail.com"],
+    )
+
+post_save.connect(account_send_mail,sender=User)    
