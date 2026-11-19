@@ -96,9 +96,9 @@ class StudentProfileUpdateView(APIView):
 
         form_data = request.data
 
-        trainer_object = StudentProfile.objects.get(trainer=request.user)
+        student_object = StudentProfile.objects.get(student=request.user)
 
-        serializer = StudentProfileSerailizer(data=form_data,instance=trainer_object)
+        serializer = StudentProfileSerailizer(data=form_data,instance=student_object)
 
         if serializer.is_valid():
 
