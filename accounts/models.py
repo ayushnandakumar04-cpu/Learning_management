@@ -85,7 +85,7 @@ def account_send_mail(sender,instance,created,*args,**kwargs):
 
         send_mail(
             "Account creating conferamtion",
-            "Student You are created account 👌.",
+            "Student You are created account 👍.",
             "ayushnandakumar04@gmail.com",
             ["thefarsin@gmail.com"],
     )

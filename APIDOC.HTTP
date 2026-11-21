@@ -6,10 +6,10 @@ POST http://127.0.0.1:8000/api/trainer/register
 Content-Type: application/json
 
 {
-    "username":"Sajay43",
+    "username":"Sajay34",
     "email":"sajay@gmail.com",
     "password":"sajay@23",
-    "phone":"987658096"
+    "phone":"989058006"
 }
 
 # Trainer Token Genrating
@@ -19,7 +19,7 @@ POST  http://127.0.0.1:8000/api/trainer/login
 Content-Type: application/json
 
 {
-    "username":"Sajay3",
+    "username":"Sajay34",
     "password":"sajay@23"
 
 }
@@ -47,6 +47,62 @@ Authorization: Token dc5a833d145bde9882ce404f2250f313d0d60d82
 GET http://127.0.0.1:8000/api/trainer/me
 Accept: application/json
 Authorization: Token dc5a833d145bde9882ce404f2250f313d0d60d82
+
+#======COURSE LIST=====#
+#api call for list
+###
+
+GET http://127.0.0.1:8000/course/list/
+Accept: application/json
+Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
+
+#api call for add
+###
+POST http://127.0.0.1:8000/course/list/
+Content-Type: application/json
+Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
+
+{
+    "name":"Python Django",
+    "language":"Python",
+    "description":"Learning python and django for implementing different projects",
+    "price":50000,
+    "duration":"2 hours"
+}
+#==course retrieve==#
+#api call for retrieve
+###
+
+GET http://127.0.0.1:8000/course/update/2/
+Accept: application/json
+Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
+
+#api call for update
+###
+
+PUT http://127.0.0.1:8000/course/update/2/
+Content-Type: application/json
+Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
+
+{
+    "name":"JAVA Full Stack",
+    "language":"java",
+    "description":"Learning Java is used to implement impressive projects",
+    "duration":"3hours",
+    "price":"60,000"
+}
+
+#
+###
+
+DELETE http://127.0.0.1:8000/course/update/3/
+Content-Type: application/json
+Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
+
+{
+    "id":3
+}
+
 #api call for register
 ###
 
