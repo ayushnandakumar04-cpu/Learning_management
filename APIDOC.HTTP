@@ -103,6 +103,19 @@ Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
     "id":3
 }
 
+#api call for create
+###
+
+POST  http://127.0.0.1:8000/module/update/1/create/
+Content-Type: application/json
+Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
+
+{
+    "name":"Python Basics",
+    "description":"Introduction to Python",
+    "topics":"Variables, Loops, Functions"
+}
+
 #api call for register
 ###
 

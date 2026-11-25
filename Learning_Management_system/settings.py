@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'course_manage',
+    'module_manage',
 ]
 
 MIDDLEWARE = [
