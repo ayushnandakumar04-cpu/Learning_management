@@ -73,14 +73,14 @@ Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 #api call for retrieve
 ###
 
-GET http://127.0.0.1:8000/course/update/2/
+GET http://127.0.0.1:8000/course/update/1/
 Accept: application/json
 Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 
 #api call for update
 ###
 
-PUT http://127.0.0.1:8000/course/update/2/
+PUT http://127.0.0.1:8000/course/update/1/
 Content-Type: application/json
 Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 
@@ -95,7 +95,7 @@ Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 #
 ###
 
-DELETE http://127.0.0.1:8000/course/update/3/
+DELETE http://127.0.0.1:8000/course/update/1/
 Content-Type: application/json
 Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 
@@ -106,7 +106,7 @@ Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 #api call for create
 ###
 
-POST  http://127.0.0.1:8000/module/update/1/create/
+POST  http://127.0.0.1:8000/module/course/2/create/
 Content-Type: application/json
 Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 

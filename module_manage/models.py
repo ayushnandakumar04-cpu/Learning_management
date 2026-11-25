@@ -10,7 +10,7 @@ class Module(models.Model):
 
     description = models.TextField(null=True,blank=True)
 
-    course = models.ForeignKey(Course,on_delete=models.CASCADE)
+    course = models.ForeignKey(Course,on_delete=models.CASCADE,related_name="modules")
 
     trainer = models.ForeignKey(User,on_delete=models.CASCADE)
 

@@ -1,7 +1,7 @@
 from django.db import models
 
 from accounts.models import User
-
+from datetime import datetime
 class Course(models.Model):
 
     name = models.CharField(max_length=200)
@@ -22,4 +22,7 @@ class Course(models.Model):
 
     def __str__(self):
 
-       return self.title
+       return self.name
+
+    
+    
