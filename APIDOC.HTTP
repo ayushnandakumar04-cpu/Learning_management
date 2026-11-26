@@ -106,7 +106,7 @@ Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 #api call for create
 ###
 
-POST  http://127.0.0.1:8000/module/2/course/
+POST  http://127.0.0.1:8000/module/8/course/
 Content-Type: application/json
 Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 
@@ -116,6 +116,46 @@ Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
     "topics":"class, Loops, Functions"
 }
 
+#api for retrieve
+###
+GET  http://127.0.0.1:8000/module/course/15
+Accept:application/json
+Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
+
+#api for update
+###
+PUT http://127.0.0.1:8000/module/course/17
+Content-Type:application/json
+Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
+
+{
+  "id": 17,
+  "name": "Django Fundamentals",
+  "description": "Learn the basics of Python programming.",
+  "topics": "Introduction to Python, Variables, Data Types, Operators, Conditional Statements, Loops"
+}
+
+#api for delete
+###
+DELETE http://127.0.0.1:8000/module/course/5
+Accept:application/json
+Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
+
+#=====Lesson====#
+#
+###
+
+POST http://127.0.0.1:8000/lesson/15/module
+Content-Type: application/json
+Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
+
+{
+    "title":"Java Introduction",
+    "description":"Learn Java basics",
+    "video_url":"https://youtu.be/BGTx91t8q50?si=k3E1sZWjGBcaRYhS",
+    "duration":"1 hour"
+}
+#=========STUDENT============#
 #api call for register
 ###
 

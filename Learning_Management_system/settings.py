@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'course_manage',
     'module_manage',
+    'lesson_manage',
 ]
 
 MIDDLEWARE = [

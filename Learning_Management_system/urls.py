@@ -22,4 +22,5 @@ urlpatterns = [
     path('api/',include("accounts.urls")),
     path('course/',include("course_manage.urls")),
     path('module/',include("module_manage.urls")),
+    path('lesson/',include("lesson_manage.urls"))
 ]
