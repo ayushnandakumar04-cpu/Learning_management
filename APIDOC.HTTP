@@ -73,7 +73,7 @@ Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 #api call for retrieve
 ###
 
-GET http://127.0.0.1:8000/course/update/1/
+GET http://127.0.0.1:8000/course/update/5/
 Accept: application/json
 Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 
@@ -95,7 +95,7 @@ Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 #
 ###
 
-DELETE http://127.0.0.1:8000/course/update/1/
+DELETE http://127.0.0.1:8000/course/update/5/
 Content-Type: application/json
 Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 
@@ -106,14 +106,14 @@ Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 #api call for create
 ###
 
-POST  http://127.0.0.1:8000/module/course/2/create/
+POST  http://127.0.0.1:8000/module/2/course/
 Content-Type: application/json
 Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 
 {
-    "name":"Python Basics",
-    "description":"Introduction to Python",
-    "topics":"Variables, Loops, Functions"
+    "name":"Django Basics",
+    "description":"Introduction to  Django",
+    "topics":"class, Loops, Functions"
 }
 
 #api call for register
