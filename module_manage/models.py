@@ -24,7 +24,6 @@ class Module(models.Model):
 
     def __str__(self):
         return self.title
-
     def save(self,*args,**kwargs):
 
         last_obj = Module.objects.filter(course=self.course).last()
@@ -38,5 +37,4 @@ class Module(models.Model):
 
             return super().save(*args,**kwargs)  
 
-    def total_modules(self):
-        return Module.objects.filter(course=self).count()           
+          

@@ -14,6 +14,8 @@ class Lessons(models.Model):
 
     video_url = models.URLField(null=True,blank=True)
 
+    lesson_no=  models.PositiveIntegerField(null=True,blank=True)
+
     duration = models.CharField(max_length=50,null=True,blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -24,5 +26,11 @@ class Lessons(models.Model):
 
         return self.title
 
-    def total_lessons(self):
-        return Lessons.objects.filter(module=self).count()   
+    def save(self, *args, **kwargs):
+         last_obj = Lessons.objects.filter(module=self.module).last()
+
+         if last_obj:
+             self.lesson_no=last_obj.lesson_no+1
+         else:
+             self.lesson_no=1
+         return super().save(*args,**kwargs) 

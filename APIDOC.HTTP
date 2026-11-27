@@ -118,7 +118,7 @@ Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 
 #api for retrieve
 ###
-GET  http://127.0.0.1:8000/module/course/15
+GET  http://127.0.0.1:8000/module/course/17
 Accept:application/json
 Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 
@@ -145,15 +145,49 @@ Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 #
 ###
 
-POST http://127.0.0.1:8000/lesson/15/module
+POST http://127.0.0.1:8000/lesson/20/module
 Content-Type: application/json
 Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
 
 {
-    "title":"Java Introduction",
-    "description":"Learn Java basics",
-    "video_url":"https://youtu.be/BGTx91t8q50?si=k3E1sZWjGBcaRYhS",
-    "duration":"1 hour"
+    "title":"python Introduction",
+    "description":"Learn python  basics",
+    "video_url":"https://youtu.be/-TkoO8Z07hI?si=fP9syILx1ov9SWuC",
+    "duration":"25 minutes"
+}
+
+#api call for retrieve
+###
+
+GET http://127.0.0.1:8000/lesson/module/15
+Accept: application/json
+Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
+
+#api call for update
+###
+
+PUT  http://127.0.0.1:8000/lesson/module/17
+Content-Type: application/json
+Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
+
+{
+    
+    "title":"python django Introduction",
+    "description":"Learn python django  basics",
+    "video_url":"https://youtu.be/2VfM_n74HHI?si=-41aD2qRBgB5Rutw",
+    "duration":"30 minutes"
+
+}
+
+#api call for delete
+###
+
+DELETE http://127.0.0.1:8000/lesson/module/10
+Content-Type: application/json
+Authorization: Token f93b750256d19b06232e211ad77ed98df947e7db
+
+{
+    "id":17
 }
 #=========STUDENT============#
 #api call for register
@@ -169,6 +203,7 @@ Content-Type: application/json
     "password":"Ayush@23",
     "phone":"884899136"
 }
+
 
 
 #
