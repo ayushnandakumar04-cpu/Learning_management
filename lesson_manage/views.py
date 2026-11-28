@@ -1,5 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from rest_framework import authentication,permissions
+from lesson_manage.permissions import IsTrainer
 from rest_framework.views import APIView
 from lesson_manage.serializers import LessonSerializer
 from module_manage.models import Module
@@ -10,7 +11,7 @@ from rest_framework.generics import RetrieveUpdateDestroyAPIView
 
 class LessonCreateView(APIView):
     authentication_classes = [authentication.TokenAuthentication]
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [IsTrainer]
     def post(self,request,pk=None):
         module_id=pk
         form_data=request.data
@@ -24,6 +25,6 @@ class LessonCreateView(APIView):
 
 class LessonRetrieveUpdateDeleteView(RetrieveUpdateDestroyAPIView):
     authentication_classes = [authentication.TokenAuthentication]
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [IsTrainer]
     serializer_class=LessonSerializer
     queryset=Lessons.objects.all()
